@@ -13,6 +13,7 @@
 		3DB242F11DD1135000B21500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242EF1DD1135000B21500 /* Main.storyboard */; };
 		3DB242F61DD1135000B21500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242F41DD1135000B21500 /* LaunchScreen.storyboard */; };
 		3DB243021DD1320800B21500 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB243011DD1320800B21500 /* SettingsViewController.swift */; };
+		3DFB91951DD5C09700579BBE /* TabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		3DB242F51DD1135000B21500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB242F71DD1135000B21500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB243011DD1320800B21500 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerDelegate.swift; sourceTree = "<group>"; };
+		3DFB91961DD5C8A900579BBE /* timy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = timy.entitlements; sourceTree = "<group>"; };
 		6B83B41A4C03BAE8656A3FEA /* Pods_timy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,12 +73,14 @@
 		3DB242EA1DD1135000B21500 /* timy */ = {
 			isa = PBXGroup;
 			children = (
+				3DFB91961DD5C8A900579BBE /* timy.entitlements */,
 				3DB242EB1DD1135000B21500 /* AppDelegate.swift */,
 				3DB242ED1DD1135000B21500 /* TimeTrackingViewController.swift */,
 				3DB242EF1DD1135000B21500 /* Main.storyboard */,
 				3DB242F41DD1135000B21500 /* LaunchScreen.storyboard */,
 				3DB242F71DD1135000B21500 /* Info.plist */,
 				3DB243011DD1320800B21500 /* SettingsViewController.swift */,
+				3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */,
 			);
 			path = timy;
 			sourceTree = "<group>";
@@ -125,6 +130,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = DA9V9J8JWS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -211,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFB91951DD5C09700579BBE /* TabBarControllerDelegate.swift in Sources */,
 				3DB242EE1DD1135000B21500 /* TimeTrackingViewController.swift in Sources */,
 				3DB242EC1DD1135000B21500 /* AppDelegate.swift in Sources */,
 				3DB243021DD1320800B21500 /* SettingsViewController.swift in Sources */,
@@ -257,6 +268,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -307,6 +319,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -336,7 +349,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 330DBC8CEC7E57527132850C /* Pods-timy.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = timy/timy.entitlements;
 				DEVELOPMENT_TEAM = DA9V9J8JWS;
 				INFOPLIST_FILE = timy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -350,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D0A929D2B2A0093FF0273B3 /* Pods-timy.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = timy/timy.entitlements;
 				DEVELOPMENT_TEAM = DA9V9J8JWS;
 				INFOPLIST_FILE = timy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
