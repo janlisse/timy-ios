@@ -5,15 +5,14 @@ import SwiftKeychainWrapper
 
 class SettingsViewController: FormViewController, UITabBarControllerDelegate {
     
-    let API_KEY = "apiKey"
-    let SERVER_URL = "serverUrl"
+    let settingsChangeDelegate: SettingsChangeDelegate = TimyData.shared
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if (!(viewController is SettingsViewController)) {
-            let apiKey = form.values()[API_KEY] as! String
-            let serverUrl = form.values()[SERVER_URL] as! URL
-            _ = KeychainWrapper.standard.set(apiKey, forKey: API_KEY)
-            _ = KeychainWrapper.standard.set(serverUrl.absoluteString, forKey: SERVER_URL)
+            let apiKey = form.values()[TimyData.API_KEY] as! String
+            let serverUrl = form.values()[TimyData.SERVER_URL] as! URL
+            settingsChangeDelegate.apiKeyChanged(apiKey)
+            settingsChangeDelegate.serverUrlChanged(serverUrl)
         }
         return true
     }
@@ -22,13 +21,12 @@ class SettingsViewController: FormViewController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.tabBarController?.delegate = self
         form +++ Section("Settings")
-            <<< TextRow(API_KEY){ row in
+            <<< TextRow(TimyData.API_KEY){ row in
                 row.textFieldPercentage = 0.6
                 row.title = "API-Key:"
-                row.placeholder = "foo"
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
-                if let apiKey = KeychainWrapper.standard.string(forKey: API_KEY) {
+                if let apiKey = TimyData.shared.loadApiKey() {
                     row.value = apiKey
                 }
             }
@@ -40,12 +38,12 @@ class SettingsViewController: FormViewController, UITabBarControllerDelegate {
                     cell.backgroundColor = .white
                 }
             }
-            <<< URLRow(SERVER_URL){
+            <<< URLRow(TimyData.SERVER_URL){
                 $0.textFieldPercentage = 0.6
                 $0.title = "Timy Server:"
                 $0.placeholder = "https://example.com"
-                if let serverUrl = KeychainWrapper.standard.string(forKey: SERVER_URL) {
-                    $0.value = URL(string: serverUrl)
+                if let serverUrl = TimyData.shared.loadServerUrl() {
+                    $0.value = serverUrl
                 }
             }
             .cellUpdate { cell, row in

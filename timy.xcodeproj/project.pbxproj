@@ -13,7 +13,13 @@
 		3DB242F11DD1135000B21500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242EF1DD1135000B21500 /* Main.storyboard */; };
 		3DB242F61DD1135000B21500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242F41DD1135000B21500 /* LaunchScreen.storyboard */; };
 		3DB243021DD1320800B21500 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB243011DD1320800B21500 /* SettingsViewController.swift */; };
-		3DFB91951DD5C09700579BBE /* TabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */; };
+		3DFB91A01DD6644300579BBE /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919C1DD6644300579BBE /* Json.swift */; };
+		3DFB91A11DD6644300579BBE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919D1DD6644300579BBE /* Project.swift */; };
+		3DFB91A21DD6644300579BBE /* TimeTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919E1DD6644300579BBE /* TimeTracking.swift */; };
+		3DFB91A31DD6644300579BBE /* TimyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919F1DD6644300579BBE /* TimyData.swift */; };
+		3DFB91A61DD6647800579BBE /* TimeTrackingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A51DD6647800579BBE /* TimeTrackingStore.swift */; };
+		3DFB91A81DD664A400579BBE /* SettingsChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A71DD664A400579BBE /* SettingsChangeDelegate.swift */; };
+		3DFB91AA1DD7B57600579BBE /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +32,14 @@
 		3DB242F51DD1135000B21500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB242F71DD1135000B21500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB243011DD1320800B21500 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		3DFB91961DD5C8A900579BBE /* timy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = timy.entitlements; sourceTree = "<group>"; };
+		3DFB919C1DD6644300579BBE /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		3DFB919D1DD6644300579BBE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		3DFB919E1DD6644300579BBE /* TimeTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracking.swift; sourceTree = "<group>"; };
+		3DFB919F1DD6644300579BBE /* TimyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimyData.swift; sourceTree = "<group>"; };
+		3DFB91A51DD6647800579BBE /* TimeTrackingStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTrackingStore.swift; sourceTree = "<group>"; };
+		3DFB91A71DD664A400579BBE /* SettingsChangeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsChangeDelegate.swift; sourceTree = "<group>"; };
+		3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		6B83B41A4C03BAE8656A3FEA /* Pods_timy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +85,8 @@
 		3DB242EA1DD1135000B21500 /* timy */ = {
 			isa = PBXGroup;
 			children = (
+				3DFB91A41DD6645E00579BBE /* Store */,
+				3DFB919B1DD663A800579BBE /* Models */,
 				3DFB91961DD5C8A900579BBE /* timy.entitlements */,
 				3DB242EB1DD1135000B21500 /* AppDelegate.swift */,
 				3DB242ED1DD1135000B21500 /* TimeTrackingViewController.swift */,
@@ -80,9 +94,29 @@
 				3DB242F41DD1135000B21500 /* LaunchScreen.storyboard */,
 				3DB242F71DD1135000B21500 /* Info.plist */,
 				3DB243011DD1320800B21500 /* SettingsViewController.swift */,
-				3DFB91941DD5C09700579BBE /* TabBarControllerDelegate.swift */,
+				3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */,
 			);
 			path = timy;
+			sourceTree = "<group>";
+		};
+		3DFB919B1DD663A800579BBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DFB919C1DD6644300579BBE /* Json.swift */,
+				3DFB919D1DD6644300579BBE /* Project.swift */,
+				3DFB919E1DD6644300579BBE /* TimeTracking.swift */,
+				3DFB919F1DD6644300579BBE /* TimyData.swift */,
+				3DFB91A71DD664A400579BBE /* SettingsChangeDelegate.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3DFB91A41DD6645E00579BBE /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				3DFB91A51DD6647800579BBE /* TimeTrackingStore.swift */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 		D50E71CA71836EADE8592F37 /* Frameworks */ = {
@@ -221,10 +255,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DFB91951DD5C09700579BBE /* TabBarControllerDelegate.swift in Sources */,
 				3DB242EE1DD1135000B21500 /* TimeTrackingViewController.swift in Sources */,
+				3DFB91AA1DD7B57600579BBE /* LoadingIndicatorView.swift in Sources */,
+				3DFB91A61DD6647800579BBE /* TimeTrackingStore.swift in Sources */,
 				3DB242EC1DD1135000B21500 /* AppDelegate.swift in Sources */,
 				3DB243021DD1320800B21500 /* SettingsViewController.swift in Sources */,
+				3DFB91A11DD6644300579BBE /* Project.swift in Sources */,
+				3DFB91A81DD664A400579BBE /* SettingsChangeDelegate.swift in Sources */,
+				3DFB91A31DD6644300579BBE /* TimyData.swift in Sources */,
+				3DFB91A01DD6644300579BBE /* Json.swift in Sources */,
+				3DFB91A21DD6644300579BBE /* TimeTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
