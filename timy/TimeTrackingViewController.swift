@@ -6,10 +6,6 @@ class TimeTrackingViewController: FormViewController {
     
     @IBOutlet weak var sendButton: UIButton!
     
-    var messageFrame = UIView()
-    var activityIndicator = UIActivityIndicatorView()
-    var strLabel = UILabel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingIndicatorView.show("Loading projects")
@@ -54,11 +50,11 @@ class TimeTrackingViewController: FormViewController {
                 $0.title = "Send"
                 }
                 .onCellSelection { [weak self] (cell, row) in
-                    self?.showAlert()
+                    self?.send()
         }
     }
     
-    func showAlert() {
+    func send() {
         form.rowBy(tag: "send")?.disabled = true
         let project = form.rowBy(tag: "project")?.baseValue as? Project
         let description = form.rowBy(tag: "description")?.baseValue as? String
