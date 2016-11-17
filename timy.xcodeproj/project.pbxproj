@@ -20,6 +20,7 @@
 		3DFB91A61DD6647800579BBE /* TimeTrackingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A51DD6647800579BBE /* TimeTrackingStore.swift */; };
 		3DFB91A81DD664A400579BBE /* SettingsChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A71DD664A400579BBE /* SettingsChangeDelegate.swift */; };
 		3DFB91AA1DD7B57600579BBE /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */; };
+		3DFB91AC1DDBCB8300579BBE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DFB91AB1DDBCB8300579BBE /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3DFB91A51DD6647800579BBE /* TimeTrackingStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTrackingStore.swift; sourceTree = "<group>"; };
 		3DFB91A71DD664A400579BBE /* SettingsChangeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsChangeDelegate.swift; sourceTree = "<group>"; };
 		3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		3DFB91AB1DDBCB8300579BBE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6B83B41A4C03BAE8656A3FEA /* Pods_timy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				3DB242F71DD1135000B21500 /* Info.plist */,
 				3DB243011DD1320800B21500 /* SettingsViewController.swift */,
 				3DFB91A91DD7B57600579BBE /* LoadingIndicatorView.swift */,
+				3DFB91AB1DDBCB8300579BBE /* Media.xcassets */,
 			);
 			path = timy;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB242F61DD1135000B21500 /* LaunchScreen.storyboard in Resources */,
+				3DFB91AC1DDBCB8300579BBE /* Media.xcassets in Resources */,
 				3DB242F11DD1135000B21500 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

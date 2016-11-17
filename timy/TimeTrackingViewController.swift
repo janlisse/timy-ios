@@ -24,26 +24,26 @@ class TimeTrackingViewController: FormViewController {
     func renderForm() {
         form +++ Section("Track your time")
             <<< AlertRow<Project>("project") {
-                $0.title = "Projekt"
+                $0.title = "Projekt:"
                 $0.selectorTitle = "Projekt"
                 $0.options = TimyData.shared.projects
                 $0.displayValueFor = {(p) -> String? in return p?.number}
                 $0.value = TimyData.shared.projects.first
             }
             <<< TextRow("description"){ row in
-                row.title = "Beschreibung"
+                row.title = "Beschreibung:"
                 row.placeholder = "Was habe ich getan?"
             }
-            <<< DateTimeRow("start"){
-                $0.title = "Start"
+            <<< TimeRow("start"){
+                $0.title = "Start:"
                 $0.value = Date()
             }
-            <<< DateTimeRow("end"){
-                $0.title = "Ende"
-                $0.value = Date()
+            <<< TimeInlineRow("end"){
+                $0.title = "Ende:"
+                $0.value = Date().addingTimeInterval(8 * 60 * 60.0)
             }
             <<< IntRow("break"){ row in
-                row.title = "Pause"
+                row.title = "Pause (Minuten):"
                 row.value = 30
             }
             <<< ButtonRow("send") {
