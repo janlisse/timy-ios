@@ -19,26 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timetracking" image="Speedometer" selectedImage="Speedometer" id="V2Z-ZM-d4c"/>
+                    <navigationItem key="navigationItem" title="Neue Zeit erfassen" id="q2X-JA-hxU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuK-7f-hC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="22"/>
+            <point key="canvasLocation" x="2102" y="320"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="RKA-zt-KJc">
             <objects>
-                <viewController title="SettingsViewController" id="p2Y-uX-c8f" customClass="SettingsViewController" customModule="timy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" title="SettingsViewController" id="p2Y-uX-c8f" customClass="SettingsViewController" customModule="timy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings_2" selectedImage="Settings_2" id="Dhn-ye-q51"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXx-Mf-QhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="698.5007496251875"/>
+            <point key="canvasLocation" x="1164" y="771"/>
         </scene>
         <!--TabMenuViewController-->
         <scene sceneID="gZ3-Rd-X6C">
             <objects>
-                <tabBarController title="TabMenuViewController" automaticallyAdjustsScrollViewInsets="NO" id="WU8-M5-ObM" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabMenu" title="TabMenuViewController" automaticallyAdjustsScrollViewInsets="NO" id="WU8-M5-ObM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="GTV-RM-YJX">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -47,13 +47,67 @@
                         <color key="selectedImageTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="FnS-j2-YKv" kind="relationship" relationship="viewControllers" id="LjW-m8-2U0"/>
-                        <segue destination="p2Y-uX-c8f" kind="relationship" relationship="viewControllers" id="xKz-PJ-Q6H"/>
+                        <segue destination="VbS-68-6vE" kind="relationship" relationship="viewControllers" id="njM-aY-U4e"/>
+                        <segue destination="p2Y-uX-c8f" kind="relationship" relationship="viewControllers" id="oDP-su-6YN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFY-zC-mB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="224.80000000000001" y="698.5007496251875"/>
+        </scene>
+        <!--Timetracking-->
+        <scene sceneID="VhF-bB-X9Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VbS-68-6vE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Timetracking" image="Speedometer" selectedImage="Speedometer" id="V2Z-ZM-d4c"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hb5-FG-IjR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9cZ-ys-zzS" kind="relationship" relationship="rootViewController" id="xgR-9v-ebr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqt-Y4-gOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="-7"/>
+        </scene>
+        <!--Erfasste Zeiten-->
+        <scene sceneID="AI5-9V-SMM">
+            <objects>
+                <tableViewController id="9cZ-ys-zzS" customClass="TimeTrackingTableViewController" customModule="timy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k9Z-y2-jJ2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="Hm0-eF-PIi">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hm0-eF-PIi" id="ePg-bf-bud">
+                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9cZ-ys-zzS" id="RHS-W8-Egj"/>
+                            <outlet property="delegate" destination="9cZ-ys-zzS" id="S8f-9v-2DX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Erfasste Zeiten" id="rae-H7-a3Z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yP7-pE-ay2">
+                            <connections>
+                                <segue destination="FnS-j2-YKv" kind="show" id="aYq-H9-SjT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63j-c3-DYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103" y="-364"/>
         </scene>
     </scenes>
     <resources>

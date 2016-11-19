@@ -5,6 +5,28 @@ class TimeTrackingStore {
     
     static let shared = TimeTrackingStore()
     
+    
+    func getTimeTrackings(completion: @escaping ([[String: AnyObject]]) -> Void) {
+        Alamofire.request("\(config().0)/timetracking", headers: ["Api-Key": config().1])
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error while fetching tags: \(response.result.error)")
+                    completion([[String:AnyObject]]())
+                    return
+                }
+                guard let projectsJson = response.result.value as? [[String:AnyObject]] else {
+                    print("Invalid tag information received from service")
+                    completion([[String:AnyObject]]())
+                    return
+                }
+                completion(projectsJson)
+        }
+
+    }
+    
+    
     func getProjects(completion: @escaping ([Project]) -> Void) {
         Alamofire.request("\(config().0)/projects", headers: ["Api-Key": config().1])
             .validate(statusCode: 200..<300)

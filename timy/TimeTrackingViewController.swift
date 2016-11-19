@@ -22,7 +22,7 @@ class TimeTrackingViewController: FormViewController {
     }
     
     func renderForm() {
-        form +++ Section("Track your time")
+        form +++ Section()
             <<< AlertRow<Project>("project") {
                 $0.title = "Projekt:"
                 $0.selectorTitle = "Projekt"
@@ -36,11 +36,11 @@ class TimeTrackingViewController: FormViewController {
             }
             <<< TimeRow("start"){
                 $0.title = "Start:"
-                $0.value = Date()
+                $0.value = Date().addingTimeInterval(-8 * 60 * 60.0)
             }
             <<< TimeInlineRow("end"){
                 $0.title = "Ende:"
-                $0.value = Date().addingTimeInterval(8 * 60 * 60.0)
+                $0.value = Date()
             }
             <<< IntRow("break"){ row in
                 row.title = "Pause (Minuten):"

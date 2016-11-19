@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  timy
-//
-//  Created by Jan Liße on 07.11.16.
-//  Copyright © 2016 immaterial industries. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
