@@ -18,7 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="a34-FZ-j1y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="timy_gimp_white_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="a34-FZ-j1y">
+                                <frame key="frameInset" minX="67.5" minY="123.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="n2X-HX-7Z0"/>
                                     <constraint firstAttribute="height" constant="240" id="nWb-va-egP"/>
@@ -38,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="512" height="512"/>
+        <image name="timy_gimp_white_transparent" width="341" height="341"/>
     </resources>
 </document>

@@ -2,7 +2,7 @@ import UIKit
 
 class TimeTrackingTableViewController: UITableViewController {
 
-    var times = [[String:AnyObject]]()
+    var times = [TimeTracking]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -11,7 +11,6 @@ class TimeTrackingTableViewController: UITableViewController {
         TimeTrackingStore.shared.getTimeTrackings { (times) -> Void in
             self.view.activityIndicatorView.stopAnimating()
             self.times = times
-            
             OperationQueue.main.addOperation {
                 self.tableView.reloadData()
             }
@@ -33,9 +32,20 @@ class TimeTrackingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-        let item = times[indexPath.row]
-        cell.textLabel?.text = item["description"] as? String
+        let time = times[indexPath.row]
+        cell.textLabel?.text = time.projectId.description
+        cell.detailTextLabel?.text = time.description
         return cell
+    }
+    
+    @IBAction func unwindToTimeTrackingList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? TimeTrackingViewController,
+            let time = sourceViewController.timeTracking {
+            times.append(time)
+            OperationQueue.main.addOperation {
+                self.tableView.reloadData()
+            }
+        }
     }
    
 

@@ -3,8 +3,13 @@ import Foundation
 import Eureka
 
 class TimeTrackingViewController: FormViewController {
+        
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var timeTracking: TimeTracking?
     
-    @IBOutlet weak var sendButton: UIButton!
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +18,22 @@ class TimeTrackingViewController: FormViewController {
             TimyData.shared.projects = projects
             LoadingIndicatorView.hide()
             self.renderForm()
+        }
+    }
+    
+    override func prepare(for: UIStoryboardSegue, sender: Any?) {
+        if sender as AnyObject? === saveButton {
+            let project = form.rowBy(tag: "project")?.baseValue as? Project
+            let description = form.rowBy(tag: "description")?.baseValue as? String
+            let start = form.rowBy(tag: "start")?.baseValue as? Date
+            let end = form.rowBy(tag: "end")?.baseValue as? Date
+            let breakTime = form.rowBy(tag: "break")?.baseValue as? Int
+            
+            let timeTracking = TimeTracking(projectId: project!.projectId, description: description!, startTime: start!, endTime: end!, breakTime: breakTime!)
+            self.timeTracking = timeTracking
+            TimeTrackingStore.shared.saveTimeTracking(timeTracking: timeTracking){ (success) -> Void in
+                print("Done saving.")
+            }
         }
     }
     
@@ -46,27 +67,6 @@ class TimeTrackingViewController: FormViewController {
                 row.title = "Pause (Minuten):"
                 row.value = 30
             }
-            <<< ButtonRow("send") {
-                $0.title = "Send"
-                }
-                .onCellSelection { [weak self] (cell, row) in
-                    self?.send()
-        }
-    }
-    
-    func send() {
-        form.rowBy(tag: "send")?.disabled = true
-        let project = form.rowBy(tag: "project")?.baseValue as? Project
-        let description = form.rowBy(tag: "description")?.baseValue as? String
-        let start = form.rowBy(tag: "start")?.baseValue as? Date
-        let end = form.rowBy(tag: "end")?.baseValue as? Date
-        let breakTime = form.rowBy(tag: "break")?.baseValue as? Int
-        let timeTracking = TimeTracking(projectId: project!.projectId, description: description!, startTime: start!,
-                                        endTime: end!, breakTime: breakTime!)
-        TimeTrackingStore.shared.saveTimeTracking(timeTracking: timeTracking){ (success) -> Void in
-            self.form.rowBy(tag: "send")?.disabled = false
-            _ = self.navigationController?.popViewController(animated: true)
-        }
     }
 }
 
