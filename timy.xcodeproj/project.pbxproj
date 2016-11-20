@@ -16,6 +16,7 @@
 		3DB242F11DD1135000B21500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242EF1DD1135000B21500 /* Main.storyboard */; };
 		3DB242F61DD1135000B21500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242F41DD1135000B21500 /* LaunchScreen.storyboard */; };
 		3DB243021DD1320800B21500 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB243011DD1320800B21500 /* SettingsViewController.swift */; };
+		3DE0B2451DE2529A00A9FFA9 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0B2441DE2529A00A9FFA9 /* UIViewControllerExtension.swift */; };
 		3DFB91A01DD6644300579BBE /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919C1DD6644300579BBE /* Json.swift */; };
 		3DFB91A11DD6644300579BBE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919D1DD6644300579BBE /* Project.swift */; };
 		3DFB91A21DD6644300579BBE /* TimeTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB919E1DD6644300579BBE /* TimeTracking.swift */; };
@@ -39,6 +40,7 @@
 		3DB242F51DD1135000B21500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB242F71DD1135000B21500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB243011DD1320800B21500 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3DE0B2441DE2529A00A9FFA9 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		3DFB91961DD5C8A900579BBE /* timy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = timy.entitlements; sourceTree = "<group>"; };
 		3DFB919C1DD6644300579BBE /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		3DFB919D1DD6644300579BBE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3D548C7B1DDE5EB9002DD91C /* TimeTrackingTableViewController.swift */,
 				3D642B551DDFCA260069BC2F /* UIViewExtension.swift */,
 				3D642B571DDFCA550069BC2F /* NSObjectExtension.swift */,
+				3DE0B2441DE2529A00A9FFA9 /* UIViewControllerExtension.swift */,
 			);
 			path = timy;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				3DFB91A81DD664A400579BBE /* SettingsChangeDelegate.swift in Sources */,
 				3DFB91A31DD6644300579BBE /* TimyData.swift in Sources */,
 				3DFB91A01DD6644300579BBE /* Json.swift in Sources */,
+				3DE0B2451DE2529A00A9FFA9 /* UIViewControllerExtension.swift in Sources */,
 				3DFB91A21DD6644300579BBE /* TimeTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

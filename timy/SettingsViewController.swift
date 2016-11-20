@@ -13,7 +13,7 @@ class SettingsViewController: FormViewController, UITabBarControllerDelegate {
                 settingsChangeDelegate.apiKeyChanged(apiKey)
             }
             if let serverUrl = form.values()[TimyData.SERVER_URL] as? URL {
-                        settingsChangeDelegate.serverUrlChanged(serverUrl)
+                settingsChangeDelegate.serverUrlChanged(serverUrl)
             }
         }
         return true
@@ -48,6 +48,4 @@ class SettingsViewController: FormViewController, UITabBarControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }

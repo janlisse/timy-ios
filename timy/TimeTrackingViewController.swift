@@ -3,7 +3,7 @@ import Foundation
 import Eureka
 
 class TimeTrackingViewController: FormViewController {
-        
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var timeTracking: TimeTracking?
     
@@ -13,11 +13,14 @@ class TimeTrackingViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadingIndicatorView.show("Loading projects")
-        TimeTrackingStore.shared.getProjects{ (projects) -> Void in
-            TimyData.shared.projects = projects
-            LoadingIndicatorView.hide()
-            self.renderForm()
+        TimeTrackingStore.shared.getProjects{ (projectsResult) -> Void in
+            switch projectsResult {
+            case .success:
+                TimyData.shared.projects = projectsResult.value!
+                self.renderForm()
+            case .failure:
+                self.showError(projectsResult.error!)
+            }
         }
     }
     

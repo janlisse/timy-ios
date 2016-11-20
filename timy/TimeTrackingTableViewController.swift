@@ -8,11 +8,16 @@ class TimeTrackingTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.view.activityIndicatorView.startAnimating()
-        TimeTrackingStore.shared.getTimeTrackings { (times) -> Void in
-            self.view.activityIndicatorView.stopAnimating()
-            self.times = times
-            OperationQueue.main.addOperation {
-                self.tableView.reloadData()
+        TimeTrackingStore.shared.getTimeTrackings { (timesResult) -> Void in
+            switch timesResult {
+            case .success:
+                self.view.activityIndicatorView.stopAnimating()
+                self.times = timesResult.value!
+                OperationQueue.main.addOperation {
+                    self.tableView.reloadData()
+                }
+            case .failure:
+                self.showError(timesResult.error!)
             }
         }
     }
