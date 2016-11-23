@@ -38,9 +38,18 @@ class TimeTrackingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
         let time = times[indexPath.row]
-        cell.textLabel?.text = time.projectId.description
-        cell.detailTextLabel?.text = time.description
+        
+        print(time.startTime)
+        cell.textLabel?.text = formatDate(time.startTime)
+        cell.detailTextLabel?.text = "Projekt \(time.projectId): \(time.description)"
         return cell
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: date)
     }
     
     @IBAction func unwindToTimeTrackingList(sender: UIStoryboardSegue) {

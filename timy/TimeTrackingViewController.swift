@@ -13,7 +13,9 @@ class TimeTrackingViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.activityIndicatorView.startAnimating()
         TimeTrackingStore.shared.getProjects{ (projectsResult) -> Void in
+            self.view.activityIndicatorView.stopAnimating()
             switch projectsResult {
             case .success:
                 TimyData.shared.projects = projectsResult.value!
